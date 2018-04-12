@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import FriendCard from "./components/FriendCard";
+import Wrapper from "./components/Wrapper";
+import Title from "./components/Title";
+import friends from "./friends.json"
 import './App.css';
 
 class App extends Component {
-  render() {
+  state = {
+    friends
+  };
+
+  //card is clicked
+
+  clickCard = card => {
+    console.log("you clicked the card!");
+  };
+
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Wrapper>
+        <Title>Friends List </Title>
+        {this.state.friends.map(friend => (
+          <FriendCard
+          clickCard={friend.clickCard}
+          id={friend.id}
+          key={friend.id}
+          name={friend.name}
+          image={friend.image}
+          />
+        ))}
+        </Wrapper>
     );
   }
 }
-
 export default App;
