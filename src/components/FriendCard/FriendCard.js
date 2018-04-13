@@ -10,20 +10,14 @@ const FriendCard = props => (
        <div className="img-container"> 
           <button> 
               
-              <img alt={props.name} src={props.image} onClick={props.clickCard} />
+          <img alt={props.name} src={props.image} onClick={() => props.clickCard(props.id)} />
               
               
               
               </button>
        </div>
 
-       <div className ="content">
-           <ul>
-               <li>
-                   <strong>Name:</strong> {props.name}
-                   </li>
-                   </ul>
-            </div>
+    
             </div>
 
 );
