@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
 import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
-// import Counter from "./components/Counter";
+import Heading from "./components/Heading";
 import friends from "./friends.json"
 import './App.css';
 
 
 // const Counter = () => <Counter />
 
-let currScore = 0;
+const currScore = 0;
+const guessedPic = [];
+
 
 class App extends Component {
   state = {
     friends,
-    currScore, 
+    currScore,
+    guessedPic,
+    message: 'Click each picture just once!'
   };
 
   //card is clicked
+  //
 
   clickCard = card => {
     this.setState({ currScore: this.state.currScore + 1 });
@@ -26,9 +30,11 @@ class App extends Component {
   render () {
     return (
       <Wrapper>
-        <Title>Friends List </Title>
-        <p>{this.state.currScore}</p>
-        {this.state.friends.map(friend => (
+    <Heading title="Yass, Queen!"
+    currScore= {this.state.currScore}
+    message={this.state.message ? this.state.message: 'Click each picture just once!'}
+    /> <br />
+    {this.state.friends.map(friend => (
           <FriendCard
           clickCard={this.clickCard}
           id={friend.id}

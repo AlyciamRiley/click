@@ -10,7 +10,7 @@ const FriendCard = props => (
        <div className="img-container"> 
           <button> 
               
-          <img alt={props.name} src={props.image} onClick={() => props.clickCard(props.id)} />
+          <img alt={props.name} src={props.image} className ="diva" onClick={() => props.clickCard(props.id)} />
               
               
               
